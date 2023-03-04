@@ -37,7 +37,7 @@ async function deleteProprietario(proprietario_id) {
 async function getProprietarios() {
   try {
     const response = await Proprietario.findAll({
-      include: [{ Model: Animal }],
+      include: [{ model: Animal, as: "animais" }],
     });
 
     return response;

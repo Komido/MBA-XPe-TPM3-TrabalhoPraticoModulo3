@@ -3,6 +3,8 @@ import express from "express";
 import animaisRouter from "./src/routes/animal.route.js";
 import proprietariosRouter from "./src/routes/proprietario.route.js";
 
+import "./src/repositories/_db.js";
+
 const app = express();
 
 app.use(express.json());
