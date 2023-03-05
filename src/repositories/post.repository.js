@@ -31,7 +31,7 @@ async function updatePost(post) {
           $set: {
             titulo: post.titulo,
             descricao: post.descricao,
-            comentarios: post.comentarios,
+            comentarios: post.comentarios || [],
           },
         }
       );
