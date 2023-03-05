@@ -13,7 +13,7 @@ async function insertAnimal(animal) {
 
 async function updateAnimal(animal) {
   try {
-    const response = await Animal.update(animal, {
+    await Animal.update(animal, {
       where: {
         animal_id: animal.animal_id,
       },

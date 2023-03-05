@@ -2,6 +2,8 @@ import express from "express";
 
 import animaisRouter from "./src/routes/animal.route.js";
 import proprietariosRouter from "./src/routes/proprietario.route.js";
+import servicoRoute from "./src/routes/servico.route.js";
+import postRoute from "./src/routes/post.route.js";
 
 const app = express();
 
@@ -9,6 +11,8 @@ app.use(express.json());
 
 app.use("/animal", animaisRouter);
 app.use("/proprietario", proprietariosRouter);
+app.use("/servico", servicoRoute);
+app.use("/post", postRoute);
 
 app.use((err, req, res, next) => {
   console.log(err);

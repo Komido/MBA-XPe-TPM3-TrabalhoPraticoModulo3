@@ -25,6 +25,5 @@ const Proprietario = db.define(
     underscored: true,
   }
 );
-Proprietario.hasMany(Animal, { foreignKey: "proprietario_id" });
 
 export default Proprietario;

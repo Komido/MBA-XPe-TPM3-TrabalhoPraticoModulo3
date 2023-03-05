@@ -1,23 +1,23 @@
 import Sequelize from "sequelize";
 import db from "../repositories/_db.js";
 
-import Proprietario from "./proprietario.model.js";
+import Animal from "./animal.model.js";
 
-const Animal = db.define(
-  "animais",
+const Servico = db.define(
+  "servicos",
   {
-    animal_id: {
+    servico_id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    nome: {
+    descricao: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    tipo: {
-      type: Sequelize.STRING,
+    valor: {
+      type: Sequelize.DECIMAL(10, 2),
       allowNull: false,
     },
   },
@@ -25,7 +25,8 @@ const Animal = db.define(
     underscored: true,
   }
 );
-Animal.belongsTo(Proprietario, { foreignKey: "proprietario_id" });
-Proprietario.hasMany(Animal, { foreignKey: "proprietario_id" });
 
-export default Animal;
+Servico.belongsTo(Animal, { foreignKey: "animal_id" });
+Animal.hasMany(Servico, { foreignKey: "animal_id" });
+
+export default Servico;
